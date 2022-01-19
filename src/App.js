@@ -45,9 +45,74 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <h1>Password Generator</h1>
         <form onSubmit={handleSubmit}>
-          <label>How many characters long should the password be? (8-50 characters)</label><br />
-          <input min="8" placeholder="8" max="50" type="number" name="password_length" onChange={handleChange}></input><br />
-          <input type="submit" value="Generate"></input>
+          <div className="row">
+            <div className="col-md-6">
+            <label>How many characters long should the password be? (8-50 characters)</label><br />
+            <input min="8" placeholder="8" max="50" type="number" name="password_length" onChange={handleChange}></input><br />
+            </div>
+            <div className="col-md-6">
+              <div className="checkboxes">
+                <div className="checkbox-container">
+                  <div className="row">
+                    <div className="col-6">
+                      <label>Include symbols:</label>
+                    </div>
+                    <div className="col-6">
+                      <input type="checkbox"></input> 
+                      <span>( e.g. @#$% )</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="checkbox-container">
+                  <div className="row">
+                    <div className="col-6">
+                      <label>Include numbers:</label>
+                    </div>
+                    <div className="col-6">
+                      <input type="checkbox"></input>
+                      <span>( e.g. 123456 )</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="checkbox-container">
+                  <div className="row">
+                    <div className="col-6">
+                      <label>Include Lowercase Characters:</label>
+                    </div>
+                    <div className="col-6">
+                      <input type="checkbox"></input>
+                      <span>( e.g. abcdefgh )</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="checkbox-container">
+                  <div className="row">
+                    <div className="col-6">
+                      <label>Include Uppercase Characters:</label>
+                    </div>
+                    <div className="col-6">
+                      <input type="checkbox"></input>
+                      <span>( e.g. ABCDEFGH )</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="checkbox-container">
+                  <div className="row">
+                    <div className="col-6">
+                      <label>Exclude Ambiguous Characters:</label>
+                    </div>
+                    <div className="col-6">
+                      <input type="checkbox"></input>
+                      <span>( e.g. &#x7b; &#x7d; &#x5b; &#x5d; &#x28; &#x29; &#47; &#92; &#39; &#34; &#96; &#126; &#44; &#59; &#58; &#46; &#60; &#62; )</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col--md-12">
+              <input type="submit" value="Generate"></input>
+            </div>
+          </div>
         </form>
         <Result password={password}/>
       </header>
