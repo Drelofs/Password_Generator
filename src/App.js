@@ -42,7 +42,23 @@ function App() {
 
   //Generate password when button is pressed
   const handleSubmit = (e) => {
-    console.log(formData)
+    let acceptable_characters = ''
+    if(formData.checkbox_lowercase) {
+      acceptable_characters += lowercase_letters
+    }
+    if(formData.checkbox_uppercase) {
+      acceptable_characters += uppercase_letters
+    }
+    if(formData.checkbox_numbers) {
+      acceptable_characters += number_characters
+    }
+    if(formData.checkbox_symbols) {
+      acceptable_characters += symbol_characters
+    }
+    if(formData.checkbox_other) {
+      acceptable_characters += other_characters
+    }
+    console.log(acceptable_characters)
     password = ''
     e.preventDefault();
     if(formData.password_length > 50) {
@@ -51,7 +67,7 @@ function App() {
     else{ 
       const length = parseInt(formData.password_length)
       for(let i=0;i<length;i++){
-        password += characters.charAt(Math.floor(Math.random() * characters.length))
+        password += acceptable_characters.charAt(Math.floor(Math.random() * acceptable_characters.length))
       }
       // console.log(password)
       setPassword(password)  
