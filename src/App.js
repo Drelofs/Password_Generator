@@ -3,20 +3,30 @@ import './App.css';
 import Result from './Result';
 import React, { useState } from 'react';
 
-const characters = '!"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~';
+const characters = '!"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~'
+const lowercase_letters = 'abcdefghijklmnopqrstuvwxyz'
+const uppercase_letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+const number_characters = '0123456789'
+const symbol_characters = '#$%&!?@ˆ()*+=-_'
+const other_characters = '"\'[]{}|/\\<>:;`˜.,'
+
+
 const initialFormData = Object.freeze({
-  password_length: '8'
+  password_length: '8',
+  checkbox_symbols: false,
+  checkbox_numbers: false,
+  checkbox_lowercase: false,
+  checkbox_uppercase: false,
+  checkbox_other: false,
 });
 
 function App() {
   let [password, setPassword] = useState('')
-
   const [formData, updateFormData] = React.useState(initialFormData);
 
   const handleChange = (e) => {
     updateFormData({
       ...formData,
-
       // Trimming any whitespace
       [e.target.name]: e.target.value.trim()
     });
@@ -58,7 +68,7 @@ function App() {
                       <label>Include symbols:</label>
                     </div>
                     <div className="col-6">
-                      <input type="checkbox"></input> 
+                      <input type="checkbox" name="checkbox_symbols" value="true" onChange={handleChange} checked></input> 
                       <span>( e.g. @#$% )</span>
                     </div>
                   </div>
@@ -69,7 +79,7 @@ function App() {
                       <label>Include numbers:</label>
                     </div>
                     <div className="col-6">
-                      <input type="checkbox"></input>
+                      <input type="checkbox" name="checkbox_numbers" value="true" onChange={handleChange} checked></input>
                       <span>( e.g. 123456 )</span>
                     </div>
                   </div>
@@ -80,7 +90,7 @@ function App() {
                       <label>Include Lowercase Characters:</label>
                     </div>
                     <div className="col-6">
-                      <input type="checkbox"></input>
+                      <input type="checkbox" name="checkbox_lowercase" value="true" onChange={handleChange} checked></input>
                       <span>( e.g. abcdefgh )</span>
                     </div>
                   </div>
@@ -91,7 +101,7 @@ function App() {
                       <label>Include Uppercase Characters:</label>
                     </div>
                     <div className="col-6">
-                      <input type="checkbox"></input>
+                      <input type="checkbox" name="checkbox_uppercase" value="true" onChange={handleChange} checked></input>
                       <span>( e.g. ABCDEFGH )</span>
                     </div>
                   </div>
@@ -99,10 +109,10 @@ function App() {
                 <div className="checkbox-container">
                   <div className="row">
                     <div className="col-6">
-                      <label>Exclude Ambiguous Characters:</label>
+                      <label>Include other Characters:</label>
                     </div>
                     <div className="col-6">
-                      <input type="checkbox"></input>
+                      <input type="checkbox" name="checkbox_other" value="true" onChange={handleChange}></input>
                       <span>( e.g. &#x7b; &#x7d; &#x5b; &#x5d; &#x28; &#x29; &#47; &#92; &#39; &#34; &#96; &#126; &#44; &#59; &#58; &#46; &#60; &#62; )</span>
                     </div>
                   </div>
