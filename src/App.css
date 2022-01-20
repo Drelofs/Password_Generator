@@ -15,7 +15,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,8 +28,20 @@
   color: #61dafb;
 }
 
+.generator-block {
+  background-color: lightgray;
+  text-align: start;
+  padding: 32px;
+}
+
 .checkbox-container {
   text-align: left;
+}
+
+.output-block {
+  background-color: lightsteelblue;
+  text-align: start;
+  padding: 32px;
 }
 
 @keyframes App-logo-spin {

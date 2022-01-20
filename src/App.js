@@ -1,14 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
 import Result from './Result';
 import React, { useState } from 'react';
 
-const characters = '!"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~'
 const lowercase_letters = 'abcdefghijklmnopqrstuvwxyz'
 const uppercase_letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 const number_characters = '0123456789'
-const symbol_characters = '#$%&!?@ˆ()*+=-_'
-const other_characters = '"\'[]{}|/\\<>:;`˜.,'
+const symbol_characters = '#$%&!?@^()*+=-_'
+const other_characters = '"\'[]{}|/\\<>:;`~.,'
 
 const initialFormData = Object.freeze({
   password_length: '8',
@@ -58,7 +56,6 @@ function App() {
     if(formData.checkbox_other) {
       acceptable_characters += other_characters
     }
-    console.log(acceptable_characters)
     password = ''
     e.preventDefault();
     if(formData.password_length > 50) {
@@ -69,7 +66,6 @@ function App() {
       for(let i=0;i<length;i++){
         password += acceptable_characters.charAt(Math.floor(Math.random() * acceptable_characters.length))
       }
-      // console.log(password)
       setPassword(password)  
     }
   }
@@ -77,18 +73,18 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>Password Generator</h1>
-        <form onSubmit={handleSubmit}>
+        <h1>Random Password Generator</h1>
+        <span>Created by Ali Shahid</span>
+      </header>
+      <form onSubmit={handleSubmit}>
           <div className="row">
-            <div className="col-md-6">
-            <label>How many characters long should the password be? (8-50 characters)</label><br />
-            <input min="8" placeholder="8" max="50" type="number" name="password_length" onChange={handleChange}></input><br />
-            </div>
-            <div className="col-md-6">
+            <div className="col-md-6 generator-block">
               <div className="checkboxes">
                 <div className="checkbox-container">
+                  <h3>How many characters? (8-50 characters)</h3>
+                  <input min="8" placeholder="8" max="50" type="number" name="password_length" onChange={handleChange}></input><br />
                   <div className="row">
+                    <h3>Customize password</h3>
                     <div className="col-6">
                       <label>Include symbols:</label>
                     </div>
@@ -143,14 +139,13 @@ function App() {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="col--md-12">
               <input type="submit" value="Generate"></input>
+            </div>
+            <div className="col-md-6 output-block">
+              <Result password={password}/>
             </div>
           </div>
         </form>
-        <Result password={password}/>
-      </header>
     </div>
   );
 }
