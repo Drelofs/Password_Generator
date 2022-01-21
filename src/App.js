@@ -40,22 +40,14 @@ function App() {
 
   //Generate password when button is pressed
   const handleSubmit = (e) => {
-    let acceptable_characters = ''
-    if(formData.checkbox_lowercase) {
-      acceptable_characters += lowercase_letters
-    }
-    if(formData.checkbox_uppercase) {
-      acceptable_characters += uppercase_letters
-    }
-    if(formData.checkbox_numbers) {
-      acceptable_characters += number_characters
-    }
-    if(formData.checkbox_symbols) {
-      acceptable_characters += symbol_characters
-    }
-    if(formData.checkbox_other) {
-      acceptable_characters += other_characters
-    }
+    //Checks if checkboxes are checked and adds respective characters.
+    const acceptable_characters = [].concat(
+      formData.checkbox_lowercase ? [lowercase_letters] : [],
+      formData.checkbox_uppercase ? [uppercase_letters] : [],
+      formData.checkbox_numbers ? [number_characters] : [],
+      formData.checkbox_symbols ? [symbol_characters] : [],
+      formData.checkbox_other ? [other_characters] : [],
+    ).join();
     password = ''
     e.preventDefault();
     if(formData.password_length > 50) {
@@ -78,7 +70,7 @@ function App() {
       </header>
       <section className="main">
         <div className='container'>
-          <div className="row">
+          <div className="row equal">
             <div className="col-md-6">
               <div className='generator-block'>
                 <form onSubmit={handleSubmit}>

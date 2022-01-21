@@ -9,7 +9,6 @@
 
 .main {
   padding: 32px 0;
-  background-color: #dfe9e9;
 }
 
 .App-header {
@@ -29,10 +28,14 @@
 
 .generator-block {
   background-color: white;
+  height:100%;
   color: #282c34;
   text-align: start;
   padding: 32px;
   border-radius: 10px;
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.25);
+  -moz-box-shadow:    2px 2px 5px 0px rgba(50, 50, 50, 0.25);
+  box-shadow:         2px 2px 5px 0px rgba(50, 50, 50, 0.25);
 }
 
 .button {
@@ -56,9 +59,13 @@
 
 .output-block {
   background-color: white;
+  height: 100%;
   text-align: start;
   padding: 32px;
   border-radius: 10px;
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.25);
+  -moz-box-shadow:    2px 2px 5px 0px rgba(50, 50, 50, 0.25);
+  box-shadow:         2px 2px 5px 0px rgba(50, 50, 50, 0.25);
 }
 
 @keyframes App-logo-spin {
