@@ -1,12 +1,11 @@
-
+import './Result.css';
 function Result(props) {
-
 
   return (
     <div className="Result">
         <h3>Here is your password:</h3>
-        <p id="output">{props.password}</p>
-        <button>Copy</button>
+        <input type="text" className="output-field" value={props.password}></input>
+        <button className="button copy">Copy</button>
     </div>
   );
 }

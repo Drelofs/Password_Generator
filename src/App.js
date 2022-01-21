@@ -77,11 +77,11 @@ function App() {
         <span>Created by Ali Shahid</span>
       </header>
       <section className="main">
-        <form onSubmit={handleSubmit}>
-          <div className='container'>
-            <div className="row">
-              <div className="col-md-6">
-                <div className='generator-block'>
+        <div className='container'>
+          <div className="row">
+            <div className="col-md-6">
+              <div className='generator-block'>
+                <form onSubmit={handleSubmit}>
                   <div className="checkboxes">
                     <div className="checkbox-container">
                       <h3>How many characters? (8-50 characters)</h3>
@@ -142,17 +142,17 @@ function App() {
                       </div>
                     </div>
                   </div>
-                  <input type="submit" className="generate-button" value="Generate"></input>
-                </div>
+                  <input type="submit" className='button' value="Generate"></input>
+                </form>
               </div>
-              <div className="col-md-6">
-                <div className='output-block'>
-                  <Result password={password}/>
-                </div>
+            </div>
+            <div className="col-md-6">
+              <div className='output-block'>
+                <Result password={password}/>
               </div>
             </div>
           </div>
-        </form>
+        </div>
       </section>
     </div>
   );
