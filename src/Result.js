@@ -15,7 +15,10 @@ function Result({ password }) {
   }
 
   if ('' == password) {
-    return <div>No password</div>
+    return <h3>Click "Generate" to create your new password.</h3>
+  }
+  else if ('empty' == password) {
+    return <h3>Please select one of the toggle options for your password.</h3>
   }
 
   return (

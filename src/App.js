@@ -40,6 +40,7 @@ function App() {
 
   //Generate password when button is pressed
   const handleSubmit = (e) => {
+    e.preventDefault();
     //Checks if checkboxes are checked and adds respective characters.
     const acceptable_characters = [].concat(
       formData.checkbox_lowercase ? [lowercase_letters] : [],
@@ -47,9 +48,8 @@ function App() {
       formData.checkbox_numbers ? [number_characters] : [],
       formData.checkbox_symbols ? [symbol_characters] : [],
       formData.checkbox_other ? [other_characters] : [],
-    ).join();
+    ).join('');
     password = ''
-    e.preventDefault();
     if(formData.password_length > 50) {
       alert("Length must be less than 50 characters")
     }
@@ -57,6 +57,9 @@ function App() {
       const length = parseInt(formData.password_length)
       for(let i=0;i<length;i++){
         password += acceptable_characters.charAt(Math.floor(Math.random() * acceptable_characters.length))
+      }
+      if (!password) {
+        password = 'empty'
       }
       setPassword(password)  
     }
@@ -78,58 +81,73 @@ function App() {
                     <div className="checkbox-container">
                       <h3>How many characters? (8-50 characters)</h3>
                       <input min="8" placeholder="8" max="50" type="number" className="password-length" name="password_length" onChange={handleChange}></input><br />
-                      <div className="row">
+                      <div className="row justify-content-center">
                         <h3>Customize password</h3>
                         <div className="col-6">
                           <label>Include symbols:</label>
                         </div>
                         <div className="col-6">
-                          <input type="checkbox" name="checkbox_symbols" defaultChecked onChange={handleToggle}></input> 
-                          <span>( e.g. @#$% )</span>
+                          <label className="switch">
+                            <input type="checkbox" name="checkbox_symbols" defaultChecked onChange={handleToggle}></input>
+                            <span className="slider round"></span>
+                          </label>
+                          <span>(e.g. @#$%_-)</span>
                         </div>
                       </div>
                     </div>
                     <div className="checkbox-container">
-                      <div className="row">
+                      <div className="row justify-content-center">
                         <div className="col-6">
                           <label>Include numbers:</label>
                         </div>
                         <div className="col-6">
-                          <input type="checkbox" name="checkbox_numbers" defaultChecked onChange={handleToggle}></input>
-                          <span>( e.g. 123456 )</span>
+                          <label className="switch">
+                            <input type="checkbox" name="checkbox_numbers" defaultChecked onChange={handleToggle}></input>
+                            <span className="slider round"></span>
+                          </label>
+                          <span>(e.g. 123456)</span>
                         </div>
                       </div>
                     </div>
                     <div className="checkbox-container">
-                      <div className="row">
+                      <div className="row justify-content-center">
                         <div className="col-6">
-                          <label>Include Lowercase Characters:</label>
+                          <label>Include lowercase characters:</label>
                         </div>
                         <div className="col-6">
-                          <input type="checkbox" name="checkbox_lowercase" defaultChecked onChange={handleToggle}></input>
-                          <span>( e.g. abcdefgh )</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="checkbox-container">
-                      <div className="row">
-                        <div className="col-6">
-                          <label>Include Uppercase Characters:</label>
-                        </div>
-                        <div className="col-6">
-                          <input type="checkbox" name="checkbox_uppercase" defaultChecked onChange={handleToggle}></input>
-                          <span>( e.g. ABCDEFGH )</span>
+                          <label className="switch">
+                            <input type="checkbox" name="checkbox_lowercase" defaultChecked onChange={handleToggle}></input>
+                            <span className="slider round"></span>
+                          </label>
+                          <span>(e.g. abcdefgh)</span>
                         </div>
                       </div>
                     </div>
                     <div className="checkbox-container">
-                      <div className="row">
+                      <div className="row justify-content-center">
                         <div className="col-6">
-                          <label>Include other Characters:</label>
+                          <label>Include uppercase characters:</label>
                         </div>
                         <div className="col-6">
-                          <input type="checkbox" name="checkbox_other" onChange={handleToggle}></input>
-                          <span>( e.g. &#x7b; &#x7d; &#x5b; &#x5d; &#x28; &#x29; &#47; &#92; &#39; &#34; &#96; &#126; &#44; &#59; &#58; &#46; &#60; &#62; )</span>
+                          <label className="switch">
+                            <input type="checkbox" name="checkbox_uppercase" defaultChecked onChange={handleToggle}></input>
+                            <span className="slider round"></span>
+                          </label>
+                          <span>(e.g. ABCDEFGH)</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="checkbox-container">
+                      <div className="row justify-content-center">
+                        <div className="col-6">
+                          <label>Include other characters:</label>
+                        </div>
+                        <div className="col-6">
+                          <label className="switch">
+                            <input type="checkbox" name="checkbox_other" onChange={handleToggle}></input>
+                            <span className="slider round"></span>
+                          </label>
+                          <span>(e.g. &#x7b; &#x7d; &#x5b; &#x5d; &#x28; &#x29; &#47; &#92; &#39; &#34; &#96; &#126; &#44; &#59; &#58; &#46; &#60; &#62;)</span>
                         </div>
                       </div>
                     </div>
