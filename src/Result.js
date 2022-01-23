@@ -1,5 +1,6 @@
 import './Result.css';
 import React, { useRef } from "react";
+import FadeIn from 'react-fade-in';
 
 function Result({ password }) {
   const [showElement,setShowElement] = React.useState(false)
@@ -22,14 +23,16 @@ function Result({ password }) {
   }
 
   return (
-    <div className="Result">
-        <h3>Here is your password:</h3>
-        <input type="text" className="output-field" ref={textInput} value={password} readOnly></input>
-        <button className="button copy" onClick={copyText}>
-          Copy
-        </button>
-        {showElement? <span className="copy-alert" >Copied!</span> :<></>}
-    </div>
+    <FadeIn>
+      <div className="Result">
+          <h3>Here is your password:</h3>
+          <input type="text" className="output-field" ref={textInput} value={password}></input>
+          <button className="button copy" onClick={copyText}>
+            Copy
+          </button>
+          {showElement? <span className="copy-alert" >Copied!</span> :<></>}
+      </div>
+    </FadeIn>
   );
 }
 

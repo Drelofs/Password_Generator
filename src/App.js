@@ -41,7 +41,7 @@ function App() {
   //Generate password when button is pressed
   const handleSubmit = (e) => {
     e.preventDefault();
-    //Checks if checkboxes are checked and adds respective characters.
+    //Checks if checkboxes are checked and adds relevant characters.
     const acceptable_characters = [].concat(
       formData.checkbox_lowercase ? [lowercase_letters] : [],
       formData.checkbox_uppercase ? [uppercase_letters] : [],
@@ -69,7 +69,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Random Password Generator</h1>
-        <span>Created by Ali Shahid</span>
+        <span className="subtitle">Created by Ali Shahid</span>
       </header>
       <section className="main">
         <div className='container'>
