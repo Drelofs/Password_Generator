@@ -15,10 +15,10 @@ function Result({ password }) {
         }, 3000);
   }
 
-  if ('' == password) {
+  if ('' === password) {
     return <h3>Click "Generate" to create your new password.</h3>
   }
-  else if ('empty' == password) {
+  else if ('empty' === password) {
     return <h3>Please select one of the toggle options for your password.</h3>
   }
 
