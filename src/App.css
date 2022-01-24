@@ -119,7 +119,7 @@ input:checked + .slider:before {
   border: none;
   margin-top: 16px;
   padding: 10px 32px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .checkbox-container {

@@ -50,8 +50,8 @@ function App() {
       formData.checkbox_other ? [other_characters] : [],
     ).join('');
     password = ''
-    if(formData.password_length > 50) {
-      alert("Length must be less than 50 characters")
+    if(formData.password_length > 50 || formData.password_length < 8) {
+      alert("Length must be more than 8 characters or less than 50 characters long")
     }
     else{ 
       const length = parseInt(formData.password_length)

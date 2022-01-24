@@ -2,10 +2,6 @@
   width: 100%;
   padding: 8px;
 }
-.copy {
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
 
 .copy-alert {
   margin-left: 16px;
