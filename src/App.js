@@ -5,8 +5,8 @@ import React, { useState } from 'react';
 const lowercase_letters = 'abcdefghijklmnopqrstuvwxyz'
 const uppercase_letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 const number_characters = '0123456789'
-const symbol_characters = '#$%&!?@^()*+=-_'
-const other_characters = '"\'[]{}|/\\<>:;`~.,'
+const symbol_characters = '#$%&!?@^*+=-_'
+const other_characters = '"\'[](){}|/\\<>:;`~.,'
 
 const initialFormData = Object.freeze({
   password_length: '8',
