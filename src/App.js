@@ -77,10 +77,11 @@ function App() {
             <div className="col-md-6">
               <div className='generator-block'>
                 <form onSubmit={handleSubmit}>
+                  <h3>How many characters? (8-50 characters)</h3>
+                  <input min="8" placeholder="8" max="50" type="number" className="password-length" name="password_length" onChange={handleChange}></input><br />
+                  <hr></hr>
                   <div className="checkboxes">
                     <div className="checkbox-container">
-                      <h3>How many characters? (8-50 characters)</h3>
-                      <input min="8" placeholder="8" max="50" type="number" className="password-length" name="password_length" onChange={handleChange}></input><br />
                       <div className="row justify-content-center">
                         <h3>Customize password</h3>
                         <div className="col-6">
@@ -147,11 +148,12 @@ function App() {
                             <input type="checkbox" name="checkbox_other" onChange={handleToggle}></input>
                             <span className="slider round"></span>
                           </label>
-                          <span>(e.g. &#x7b; &#x7d; &#x5b; &#x5d; &#x28; &#x29; &#47; &#92; &#39; &#34; &#96; &#126; &#44; &#59; &#58; &#46; &#60; &#62;)</span>
+                          <span>(e.g. &#x7b; &#x7d; &#x5b; &#x5d; &#x28; &#x29; &#47; &#92;)</span>
                         </div>
                       </div>
                     </div>
                   </div>
+                  <hr></hr>
                   <input type="submit" className='button' value="Generate"></input>
                 </form>
               </div>
