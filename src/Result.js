@@ -26,7 +26,7 @@ function Result({ password }) {
     <FadeIn>
       <div className="Result">
           <h3>Here is your password:</h3>
-          <input type="text" className="output-field" ref={textInput} value={password}></input>
+          <input type="text" className="output-field" ref={textInput} value={password} readOnly></input>
           <button className="button copy" onClick={copyText}>
             Copy
           </button>

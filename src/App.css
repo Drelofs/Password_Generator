@@ -15,11 +15,6 @@ label {
   font-size: 20px;
 }
 
-span {
-  font-size: 12px;
-  color: #3b3b3b;
-}
-
 .App-header {
   background-color: #184a25;
   min-height: 20vh;
@@ -50,6 +45,19 @@ span {
   -webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.25);
   -moz-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.25);
   box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.25);
+}
+
+.slider-box {
+  padding: 0 10px;
+  margin-top: 50px;
+}
+
+.slider-box .MuiSlider-valueLabel {
+  background-color: #184a25;
+}
+
+.MuiSlider-valueLabelLabel {
+  font-size: 18px;
 }
 
 .switch {
@@ -131,6 +139,11 @@ input:checked + .slider:before {
 
 .checkbox-container {
   text-align: left;
+}
+
+.checkbox-container span {
+  color: #3b3b3b;
+  font-size: 12px;
 }
 
 .password-length {

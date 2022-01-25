@@ -1,6 +1,7 @@
 import './App.css';
 import Result from './Result';
 import React, { useState } from 'react';
+import Slider from '@mui/material/Slider';
 
 const lowercase_letters = 'abcdefghijklmnopqrstuvwxyz'
 const uppercase_letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -9,7 +10,7 @@ const symbol_characters = '#$%&!?@^*+=-_'
 const other_characters = '"\'[](){}|/\\<>:;`~.,'
 
 const initialFormData = Object.freeze({
-  password_length: '8',
+  password_length: 12,
   checkbox_symbols: true,
   checkbox_numbers: true,
   checkbox_lowercase: true,
@@ -26,7 +27,7 @@ function App() {
     updateFormData({
       ...formData,
       // Trimming any whitespace
-      [e.target.name]: e.target.value.trim()
+      [e.target.name]: e.target.value
     });
   };
 
@@ -78,7 +79,10 @@ function App() {
               <div className='generator-block'>
                 <form onSubmit={handleSubmit}>
                   <h3>How many characters? (8-50 characters)</h3>
-                  <input min="8" placeholder="8" max="50" type="number" className="password-length" name="password_length" onChange={handleChange}></input><br />
+                  {/* <input min="8" placeholder="8" max="50" type="number" className="password-length" name="password_length" onChange={handleChange}></input><br /> */}
+                  <div className="slider-box">
+                    <Slider defaultValue={12} min={8} max={50} name="password_length" aria-label="password_length" valueLabelDisplay="on" onChange={handleChange} sx={{color: '#184a25'}} />
+                  </div>
                   <hr></hr>
                   <div className="checkboxes">
                     <div className="checkbox-container">
