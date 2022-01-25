@@ -51,8 +51,8 @@ function App() {
       formData.checkbox_other ? [other_characters] : [],
     ).join('');
     password = ''
-    if(formData.password_length > 50 || formData.password_length < 8) {
-      alert("Length must be more than 8 characters or less than 50 characters long")
+    if(formData.password_length > 36 || formData.password_length < 8) {
+      alert("Length must be more than 8 characters or less than 36 characters long")
     }
     else{ 
       const length = parseInt(formData.password_length)
@@ -78,10 +78,9 @@ function App() {
             <div className="col-md-6">
               <div className='generator-block'>
                 <form onSubmit={handleSubmit}>
-                  <h3>How many characters? (8-50 characters)</h3>
-                  {/* <input min="8" placeholder="8" max="50" type="number" className="password-length" name="password_length" onChange={handleChange}></input><br /> */}
+                  <h3>How many characters? (8-36 characters)</h3>
                   <div className="slider-box">
-                    <Slider defaultValue={12} min={8} max={50} name="password_length" aria-label="password_length" valueLabelDisplay="on" onChange={handleChange} sx={{color: '#184a25'}} />
+                    <Slider defaultValue={12} min={8} max={36} name="password_length" aria-label="password_length" valueLabelDisplay="on" onChange={handleChange} sx={{color: '#184a25'}} />
                   </div>
                   <hr></hr>
                   <div className="checkboxes">
