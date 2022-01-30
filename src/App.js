@@ -69,13 +69,12 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Random Password Generator</h1>
-        <span className="subtitle">Created by Ali Shahid</span>
+        <h1>Password Generator</h1>
       </header>
       <section className="main">
         <div className='container'>
-          <div className="row equal">
-            <div className="col-md-6">
+          <div className="row gy-5">
+            <div className="col-sm-12 col-md-6">
               <div className='generator-block'>
                 <form onSubmit={handleSubmit}>
                   <h3>How many characters? (8-36 characters)</h3>
@@ -161,7 +160,7 @@ function App() {
                 </form>
               </div>
             </div>
-            <div className="col-md-6">
+            <div className="col-sm-12 col-md-6">
               <div className='output-block'>
                 <Result password={password}/>
               </div>
