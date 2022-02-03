@@ -73,7 +73,7 @@ function App() {
       </header>
       <section className="main">
         <div className='container'>
-          <div className="row gy-5">
+          <div className="row justify-content-md-center">
             <div className="col-sm-12 col-md-6">
               <div className='generator-block'>
                 <form onSubmit={handleSubmit}>
@@ -85,9 +85,8 @@ function App() {
                   <div className="checkboxes">
                     <div className="checkbox-container">
                       <div className="row justify-content-center">
-                        <h3>Customize password</h3>
                         <div className="col-6">
-                          <label>Include symbols:</label>
+                          <label>Symbols:</label>
                         </div>
                         <div className="col-6">
                           <label className="switch">
@@ -101,7 +100,7 @@ function App() {
                     <div className="checkbox-container">
                       <div className="row justify-content-center">
                         <div className="col-6">
-                          <label>Include numbers:</label>
+                          <label>Numbers:</label>
                         </div>
                         <div className="col-6">
                           <label className="switch">
@@ -115,7 +114,7 @@ function App() {
                     <div className="checkbox-container">
                       <div className="row justify-content-center">
                         <div className="col-6">
-                          <label>Include lowercase characters:</label>
+                          <label>Lowercase</label>
                         </div>
                         <div className="col-6">
                           <label className="switch">
@@ -129,7 +128,7 @@ function App() {
                     <div className="checkbox-container">
                       <div className="row justify-content-center">
                         <div className="col-6">
-                          <label>Include uppercase characters:</label>
+                          <label>Uppercase</label>
                         </div>
                         <div className="col-6">
                           <label className="switch">
@@ -143,7 +142,7 @@ function App() {
                     <div className="checkbox-container">
                       <div className="row justify-content-center">
                         <div className="col-6">
-                          <label>Include other characters:</label>
+                          <label>Other</label>
                         </div>
                         <div className="col-6">
                           <label className="switch">
@@ -157,7 +156,7 @@ function App() {
                   </div>
                   <hr></hr>
                   <Result password={password}/>
-                  <input type="submit" className='button' value="Generate"></input>
+                  <input type="submit" className='button' value="New"></input>
                 </form>
               </div>
             </div>

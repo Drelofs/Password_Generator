@@ -16,7 +16,7 @@ function Result({ password }) {
   }
 
   if ('' === password) {
-    return <h3>Click "Generate" to create your new password.</h3>
+    return <h3>Click "New" to create your password.</h3>
   }
   else if ('empty' === password) {
     return <h3>Please select one of the toggle options for your password.</h3>
@@ -25,7 +25,7 @@ function Result({ password }) {
   return (
     <FadeIn>
       <div className="Result">
-          <h3>Here is your password:</h3>
+          <h3>Here is your password</h3>
           <div className="output">
             <div className="output-field" ref={textInput}>{password}</div>
             <div className="copy-field">
