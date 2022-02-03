@@ -6,7 +6,7 @@ function Result({ password }) {
   const [showElement,setShowElement] = React.useState(false)
   const textInput = useRef(null);
   const copyText = (e) => {
-    navigator.clipboard.writeText(textInput.current.value);
+    navigator.clipboard.writeText(textInput.current.textContent);
     setTimeout(function() {
       setShowElement(true)
          }, 10);
@@ -26,11 +26,19 @@ function Result({ password }) {
     <FadeIn>
       <div className="Result">
           <h3>Here is your password:</h3>
-          <input type="text" className="output-field" ref={textInput} value={password} readOnly></input>
-          <button className="button copy" onClick={copyText}>
-            Copy
-          </button>
-          {showElement? <span className="copy-alert" >Copied!</span> :<></>}
+          <div className="output">
+            <div className="output-field" ref={textInput}>{password}</div>
+            <div className="copy-field">
+              {showElement? <span className="copy-alert" >Copied!</span> :<></>}
+              <a className="copy" onClick={copyText}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-copy" width="44" height="44" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#2c3e50" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <rect x="8" y="8" width="12" height="12" rx="2" />
+                  <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2" />
+                </svg>
+              </a>
+            </div>
+          </div>
       </div>
     </FadeIn>
   );

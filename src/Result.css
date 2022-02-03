@@ -1,8 +1,23 @@
+.output {
+  display: flex;
+  justify-content: space-between;
+}
+
 .output-field {
   width: 100%;
   padding: 8px;
 }
 
+.copy {
+  cursor: pointer;
+}
+
+.copy-field {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .copy-alert {
-  margin-left: 16px;
+  display: block;
 }
