@@ -20,19 +20,20 @@ const initialFormData = Object.freeze({
 
 function App() {
   let [password, setPassword] = useState('')
-  const [formData, updateFormData] = React.useState(initialFormData);
+  const [formData, updateFormData] = useState(initialFormData);
 
   //Handle change on password length
   const handleChange = (e) => {
     updateFormData({
       ...formData,
-      // Trimming any whitespace
       [e.target.name]: e.target.value
     });
+    handleSubmit(e)
   };
 
   //Handle change on checkboxes
   const handleToggle = (e) => {
+    console.log('handle toggle');
     updateFormData({
       ...formData,
       [e.target.name]: e.target.checked
@@ -41,6 +42,7 @@ function App() {
 
   //Generate password when button is pressed
   const handleSubmit = (e) => {
+    console.log('handle submit')
     e.preventDefault();
     //Checks if checkboxes are checked and adds relevant characters.
     const acceptable_characters = [].concat(
