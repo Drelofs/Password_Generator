@@ -1,8 +1,29 @@
+.output {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1f1f1f;
+  padding: 10px;
+  border-radius: 10px;
+}
+
 .output-field {
   width: 100%;
-  padding: 8px;
+  font-size: 22px;
+  font-weight: 300;
+}
+
+.copy {
+  cursor: pointer;
+}
+
+.copy-field {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .copy-alert {
-  margin-left: 16px;
+  display: block;
+  margin-right: 10px;
 }

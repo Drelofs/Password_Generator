@@ -20,19 +20,19 @@ const initialFormData = Object.freeze({
 
 function App() {
   let [password, setPassword] = useState('')
-  const [formData, updateFormData] = React.useState(initialFormData);
+  const [formData, updateFormData] = useState(initialFormData);
 
   //Handle change on password length
   const handleChange = (e) => {
     updateFormData({
       ...formData,
-      // Trimming any whitespace
       [e.target.name]: e.target.value
     });
   };
 
   //Handle change on checkboxes
   const handleToggle = (e) => {
+    console.log('handle toggle');
     updateFormData({
       ...formData,
       [e.target.name]: e.target.checked
@@ -41,6 +41,7 @@ function App() {
 
   //Generate password when button is pressed
   const handleSubmit = (e) => {
+    console.log('handle submit')
     e.preventDefault();
     //Checks if checkboxes are checked and adds relevant characters.
     const acceptable_characters = [].concat(
@@ -70,24 +71,25 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Password Generator</h1>
+        <span>Created by Ali S.</span>
+        <a href='https://github.com/Drelofs/Password_Generator'>GitHub</a>
       </header>
       <section className="main">
         <div className='container'>
-          <div className="row gy-5">
+          <div className="row justify-content-md-center">
             <div className="col-sm-12 col-md-6">
               <div className='generator-block'>
                 <form onSubmit={handleSubmit}>
                   <h3>How many characters? (8-36 characters)</h3>
                   <div className="slider-box">
-                    <Slider defaultValue={12} min={8} max={36} name="password_length" aria-label="password_length" valueLabelDisplay="on" onChange={handleChange} sx={{color: '#184a25'}} />
+                    <Slider defaultValue={12} min={8} max={36} name="password_length" aria-label="password_length" valueLabelDisplay="on" onChange={handleChange} sx={{color: '#006a8e'}} />
                   </div>
                   <hr></hr>
                   <div className="checkboxes">
                     <div className="checkbox-container">
                       <div className="row justify-content-center">
-                        <h3>Customize password</h3>
                         <div className="col-6">
-                          <label>Include symbols:</label>
+                          <label>Symbols:</label>
                         </div>
                         <div className="col-6">
                           <label className="switch">
@@ -101,7 +103,7 @@ function App() {
                     <div className="checkbox-container">
                       <div className="row justify-content-center">
                         <div className="col-6">
-                          <label>Include numbers:</label>
+                          <label>Numbers:</label>
                         </div>
                         <div className="col-6">
                           <label className="switch">
@@ -115,7 +117,7 @@ function App() {
                     <div className="checkbox-container">
                       <div className="row justify-content-center">
                         <div className="col-6">
-                          <label>Include lowercase characters:</label>
+                          <label>Lowercase</label>
                         </div>
                         <div className="col-6">
                           <label className="switch">
@@ -129,7 +131,7 @@ function App() {
                     <div className="checkbox-container">
                       <div className="row justify-content-center">
                         <div className="col-6">
-                          <label>Include uppercase characters:</label>
+                          <label>Uppercase</label>
                         </div>
                         <div className="col-6">
                           <label className="switch">
@@ -143,7 +145,7 @@ function App() {
                     <div className="checkbox-container">
                       <div className="row justify-content-center">
                         <div className="col-6">
-                          <label>Include other characters:</label>
+                          <label>Other</label>
                         </div>
                         <div className="col-6">
                           <label className="switch">
@@ -156,13 +158,9 @@ function App() {
                     </div>
                   </div>
                   <hr></hr>
-                  <input type="submit" className='button' value="Generate"></input>
+                  <Result password={password}/>
+                  <input type="submit" className='button' value="New"></input>
                 </form>
-              </div>
-            </div>
-            <div className="col-sm-12 col-md-6">
-              <div className='output-block'>
-                <Result password={password}/>
               </div>
             </div>
           </div>

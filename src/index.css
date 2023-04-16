@@ -5,11 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #dfe9e9 !important;
+  background-color: #1f1f1f !important;
   height: 100%;
 }
 h3 {
-  color: #184a25;
+  color: #ffffff;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
