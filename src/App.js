@@ -28,7 +28,6 @@ function App() {
       ...formData,
       [e.target.name]: e.target.value
     });
-    handleSubmit(e)
   };
 
   //Handle change on checkboxes
@@ -72,6 +71,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Password Generator</h1>
+        <span>Created by Ali S.</span>
+        <a href='https://github.com/Drelofs/Password_Generator'>GitHub</a>
       </header>
       <section className="main">
         <div className='container'>
@@ -81,7 +82,7 @@ function App() {
                 <form onSubmit={handleSubmit}>
                   <h3>How many characters? (8-36 characters)</h3>
                   <div className="slider-box">
-                    <Slider defaultValue={12} min={8} max={36} name="password_length" aria-label="password_length" valueLabelDisplay="on" onChange={handleChange} sx={{color: '#184a25'}} />
+                    <Slider defaultValue={12} min={8} max={36} name="password_length" aria-label="password_length" valueLabelDisplay="on" onChange={handleChange} sx={{color: '#006a8e'}} />
                   </div>
                   <hr></hr>
                   <div className="checkboxes">
