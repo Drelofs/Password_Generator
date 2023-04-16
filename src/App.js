@@ -158,9 +158,9 @@ function App() {
                     </div>
                   </div>
                   <hr></hr>
-                  <Result password={password}/>
-                  <input type="submit" className='button' value="New"></input>
+                  <input type="submit" className='button' value="Generate"></input>
                 </form>
+                <Result password={password}/>
               </div>
             </div>
           </div>

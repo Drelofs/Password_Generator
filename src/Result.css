@@ -14,7 +14,8 @@
 }
 
 .copy {
-  cursor: pointer;
+  background:none;
+  border: none;
 }
 
 .copy-field {
